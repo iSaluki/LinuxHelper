@@ -1,2 +1,2 @@
-apt = ["Ubuntu","Debian","Linux Mint", "Pop!_OS"]
-pacman = ["Manjaro","Arch","EndeavourOS"]
+apt = ["ubuntu","debian","linuxmint", "popos", "raspbian"]
+pacman = ["manjaro","arch","endeavouros"]

@@ -8,6 +8,7 @@ import os
 import sys
 import subprocess
 import platform
+import distro
 
 class SystemInformationDialog(QDialog):
     def __init__(self, parent = None):
@@ -21,6 +22,9 @@ class SystemInformationDialog(QDialog):
 
         self.hostnameLabel = self.findChild(QLabel, "hostnameLabel")
         self.hostnameLabel.setText("Hostname: "+platform.node())
+
+        self.distroLabel = self.findChild(QLabel, "distroLabel")
+        self.distroLabel.setText("Distro: "+ distro.id())
 
     def QuitButton(self):
         quit()

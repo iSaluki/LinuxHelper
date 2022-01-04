@@ -42,7 +42,7 @@
     <property name="currentIndex">
      <number>0</number>
     </property>
-    <widget class="QWidget" name="tabWidgetPage1" native="true">
+    <widget class="QWidget" name="tabWidgetPage1">
      <attribute name="title">
       <string>System</string>
      </attribute>
@@ -72,13 +72,26 @@
        <string>Get system info</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="updateButton">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>20</y>
+        <width>88</width>
+        <height>34</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Update</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab">
      <attribute name="title">
       <string>Gaming</string>
      </attribute>
     </widget>
-    <widget class="QWidget" name="tabWidgetPage2" native="true">
+    <widget class="QWidget" name="tabWidgetPage2">
      <attribute name="title">
       <string>Network</string>
      </attribute>

@@ -55,6 +55,10 @@ class UI(QMainWindow):
         self.systemInfoButton = self.findChild(QPushButton, "systemInfoButton")
         self.systemInfoButton.clicked.connect(self.SystemInformation)
 
+        # Update button
+        self.updateButton = self.findChild(QPushButton, "updateButton")
+        self.updateButton.clicked.connect(self.UpdateSystem)
+
         self.show()
 
     def QuitClicked(self):
@@ -72,6 +76,32 @@ class UI(QMainWindow):
         self.statusLabel.setText("Showing system information")
         dialog = SystemInformationDialog()
         dialog.exec()
+
+    def UpdateSystem(self):
+        self.statusLabel.setText("Updating...")
+        distroid = distro.id()
+        with open("data/package-managers.txt", "r") as pml:
+            for line in pml:
+                if distroid in line:
+                    pm = line.split(" ")[0]
+        if pm == "apt":
+            self.statusLabel.setText("Updating system (apt)")
+            status = os.system("sudo apt-get upgrade && sudo apt-get update -y")
+            if status == 0:
+                self.statusLabel.setText("Update finished!")
+            else:
+                self.statusLabel.setText("Update error:", status)
+
+        if pm == "pacman":
+            self.statusLabel.setText("Updating system (pacman)")
+            status = os.system("sudo pacman -Syu")
+            if status == 0:
+                self.statusLabel.setText("Update finished!")
+            else:
+                self.statusLabel.setText("Update error:", status)
+        else:
+            self.statusLabel.setText("Unknown distro. Report on GitHub.")
+
 
 
 app = QApplication(sys.argv)

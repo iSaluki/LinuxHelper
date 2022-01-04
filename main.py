@@ -7,14 +7,20 @@ from PyQt5.uic import loadUi
 import os
 import sys
 import subprocess
+import platform
 
 class SystemInformationDialog(QDialog):
     def __init__(self, parent = None):
         super().__init__(parent)
         uic.loadUi("dialogs/systeminfo.ui", self)
 
-        self.quitButton = self.findChild(QPushButton, "quitButton")
-        self.quitButton.clicked.connect(self.QuitButton)
+
+
+        self.architectureLabel = self.findChild(QLabel, "architectureLabel")
+        self.architectureLabel.setText("Architecture: "+platform.architecture()[0])
+
+        self.hostnameLabel = self.findChild(QLabel, "hostnameLabel")
+        self.hostnameLabel.setText("Hostname: "+platform.node())
 
     def QuitButton(self):
         quit()

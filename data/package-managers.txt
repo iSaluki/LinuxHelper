@@ -1,0 +1,2 @@
+apt = ["Ubuntu","Debian","Linux Mint", "Pop!_OS"]
+pacman = ["Manjaro","Arch","EndeavourOS"]

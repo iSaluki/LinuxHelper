@@ -65,6 +65,7 @@ class UI(QMainWindow):
             self.statusLabel.setText("Error:", str(status))
 
     def SystemInformation(self):
+        self.statusLabel.setText("Showing system information")
         dialog = SystemInformationDialog()
         dialog.exec()
 

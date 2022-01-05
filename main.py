@@ -10,6 +10,9 @@ import subprocess
 import platform
 import distro
 
+if os.geteuid() != 0:
+    sys.exit("Please run the program as root!")
+
 class SystemInformationDialog(QDialog):
     def __init__(self, parent = None):
         super().__init__(parent)
